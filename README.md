@@ -1,5 +1,5 @@
 # Super-resolved-anomalous-diffusion-code
-MATLAB Code from article https://arxiv.org/pdf/2410.18133.
+MATLAB Code from article https://doi.org/10.1103/y5pn-5ynd.
 This code performs the fitting of the joint distribution of estimated anomalous exponent alpha and generalized diffusion coefficient D based on the assumption that the motion of particles is a fractional Brownian motion with randomly distributed physical parameters. 
 
 For the true underlying distribution of the physical pairs {alpha_k,D_k}, two versions are possible:
