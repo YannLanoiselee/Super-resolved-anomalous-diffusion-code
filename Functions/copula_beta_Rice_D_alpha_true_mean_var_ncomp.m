@@ -13,16 +13,20 @@ phi=delta_beta^2*mu_beta*(1-mu_beta)/beta_std(n_comp)^2-1;
 a=mu_beta*phi;
 b=(1-mu_beta)*phi;
 
-if a>20 && b>20
+pdf_beta=@(x)exp(-betaln(a,b))*x.^(a-1).*(1-x).^(b-1);
+if a>100 && b>100
     mean_X=a/(a+b)*(beta_max-beta_min)+beta_min;
 std_X=(beta_max-beta_min)/(a+b)*sqrt(a*b/(a+b+1));
 Xb=normcdf(xb,mean_X,std_X);
 pdfb=normpdf(xb,mean_X,std_X);
 else
 xb_rescaled=(xb-beta_min)/(beta_max-beta_min);
-Xb=betacdf(xb_rescaled,a,b);% CDF beta
-pdfb=1/(beta_max-beta_min)*betapdf(xb_rescaled,a,b); % PDF beta
+% Xb=betacdf(xb_rescaled,a,b);% CDF beta
+%pdfb=1/(beta_max-beta_min)*betapdf(xb_rescaled,a,b); % PDF beta
+pdfb=1/(beta_max-beta_min)*pdf_beta(xb_rescaled); % PDF beta
+Xb=cumtrapz(xb_rescaled,pdfb);% CDF beta
 end
+
 
 
 
