@@ -30,3 +30,9 @@ Required inputs are an array N x M of M trajectories of N steps, the trajectorie
 The number of components 'n_peak' must be given.
 
 The code gives an output with the fitted  joint distribution of estimated alpha vs ln(2D) and produces from that another figure of the empirically estimated alpha vs D as well as a histogram of estimated alpha and  another one for estimated D, all overlayed with the respective distributions of each component.
+
+Please cite as:\\
+Super-Resolved Anomalous Diffusion: Deciphering the Joint Distribution of Anomalous Exponent and Diffusion Coefficient\\
+Yann Lanoiselée, Gianni Pagnini, and Agnieszka Wyłomańska\\
+Phys. Rev. Lett. 135, 137101 (2025)
+
