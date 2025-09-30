@@ -33,9 +33,12 @@ for n_pair=1:size(list_H_D,1)
         covar_Y_alpha_th(n_pair),alpha_var_th(n_pair)];
 
     %% multivariate Gaussian
-inv_C_th=1/(C_th(1)*C_th(4)-C_th(2)*C_th(3))*[C_th(4),-C_th(2);-C_th(3),C_th(1)];
-    mulGau= 1/(2*pi*det(C_th)^(1/2))*exp(-0.5.*(x1-mn)'*inv_C_th*(x1-mn));
-    G=reshape(diag(mulGau),size(x_Y_est,1),size(x_alpha_est,1));
+%inv_C_th=1/(C_th(1)*C_th(4)-C_th(2)*C_th(3))*[C_th(4),-C_th(2);-C_th(3),C_th(1)];
+ %   mulGau= 1/(2*pi*det(C_th)^(1/2))*exp(-0.5.*(x1-mn)'*inv_C_th*(x1-mn));
+  %  G=reshape(diag(mulGau),size(x_Y_est,1),size(x_alpha_est,1));
+      mulGau= mvnpdf(x1',mn',C_th);
+    G=reshape((mulGau),size(x_Y_est,2),size(x_alpha_est,2));
    mat=mat+p(n_pair)*G;
 end
+
 end
